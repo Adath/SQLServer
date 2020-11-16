@@ -130,7 +130,7 @@
     SELECT COALESCE(users.name, '') + '; ' + COALESCE(users.username, '') + '; ' + COALESCE(users.password, '') + '; ' + COALESCE(users.sex, '') FROM users;
 ```
 
-<h6 align="center">PARTICIONAMENTO FÍSICO DO BANCO DE DADOS</h6>
+<h6 align="center">TABLE PARTITIONING</h6>
 
 ```sql
     CREATE DATABASE EMPRESA
