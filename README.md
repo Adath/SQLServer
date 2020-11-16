@@ -74,3 +74,27 @@
 
     INSERT INTO users (name, username, password, sex, deleted_at) VALUES ('Bruna', 'jasmin', 'grNo$ZIt3DCRsa%k!%OF', 'F', CURRENT_TIMESTAMP);
 ```
+
+<h6 align="center">SELECT WITH LIMIT</h6>
+
+```sql
+    SELECT * FROM users ORDER BY name OFFSET 50 ROWS FETCH NEXT 100 ROWS ONLY;
+```
+
+<h6 align="center">SELECT DELETED REGISTERS</h6>
+
+```sql
+    SELECT * FROM users WHERE deleted_At IS NOT NULL;
+```
+
+<h6 align="center">SELECT MAX TABLE ID</h6>
+
+```sql
+    SELECT MAX(id) FROM users;
+```
+
+<h6 align="center">COUNT TABLE'S REGISTERS NUMBER</h6>
+
+```sql
+    SELECT COUNT(*) FROM users;
+```
