@@ -1,6 +1,6 @@
 <p align="center"><img src="microsoft-sql-server.svg" width="400"></p>
 
-<p align="center">Repository containing the queries developed in <a href="https://www.microsoft.com/pt-br/sql-server?rtc=1">👉 SQLServer 👈</a></p>
+<p align="center">Repository containing the queries developed in <a href="https://www.microsoft.com/sql-server">👉 SQLServer 👈</a></p>
 
 <p align="center">
     <a href="https://opensource.org/licenses/MIT">
@@ -20,7 +20,7 @@
 <h2 align="center">Website</h2>
 
 <h6 align="center">
-    <a href="https://www.microsoft.com/pt-br/sql-server?rtc=1">https://www.microsoft.com/sql-server</a>
+    <a href="https://www.microsoft.com/sql-server">https://www.microsoft.com/sql-server</a>
 </h6>
 
 <h2 align="center">Installation on <img src="microsoft-windows-22.svg" width=100 height=100 alt="Windows"></h2>
@@ -54,7 +54,7 @@
         updated_at DATETIME NULL,
         deleted_at DATETIME NULL,
         sex CHAR(1) NOT NULL CHECK (sex IN ('F', 'M')),
-        CONSTRAINT UsersNomeUnique UNIQUE (name),
+        CONSTRAINT UsersNameUnique UNIQUE (name),
         CONSTRAINT UsersUserUnique UNIQUE (username),
     );
 ```
@@ -81,6 +81,12 @@
     SELECT * FROM users ORDER BY name OFFSET 50 ROWS FETCH NEXT 100 ROWS ONLY;
 ```
 
+<h6 align="center">SELECT WITH TOP</h6>
+
+```sql
+    SELECT TOP 5 * FROM users;
+```
+
 <h6 align="center">SELECT DELETED REGISTERS</h6>
 
 ```sql
@@ -97,4 +103,21 @@
 
 ```sql
     SELECT COUNT(*) FROM users;
+```
+
+<h6 align="center">SELECT COLUMN NAME, SIZEOF FROM TABLE</h6>
+
+```sql
+    SELECT
+        COLUMN_NAME, COALESCE(CHARACTER_OCTET_LENGTH, 0)
+    FROM
+        INFORMATION_SCHEMA.COLUMNS
+    WHERE
+        TABLE_NAME = 'users';
+```
+
+<h6 align="center">COALESCE</h6>
+
+```sql
+    SELECT COALESCE(users.name, '') + '; ' + COALESCE(users.username, '') + '; ' + COALESCE(users.password, '') + '; ' + COALESCE(users.sex, '') FROM users;
 ```
