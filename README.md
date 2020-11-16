@@ -42,6 +42,14 @@
     GO
 ```
 
+<h6 align="center">SHOW DATABASES</h6>
+
+```sql
+    SELECT name FROM master.dbo.sysdatabases
+
+    GO
+```
+
 <h6 align="center">CREATE TABLE</h6>
 
 ```sql
@@ -120,4 +128,100 @@
 
 ```sql
     SELECT COALESCE(users.name, '') + '; ' + COALESCE(users.username, '') + '; ' + COALESCE(users.password, '') + '; ' + COALESCE(users.sex, '') FROM users;
+```
+
+<h6 align="center">PARTICIONAMENTO FÍSICO DO BANCO DE DADOS</h6>
+
+```sql
+    CREATE DATABASE EMPRESA
+
+    GO
+```
+
+```sql
+    USE [master]
+
+    GO
+```
+
+```sql
+    ALTER DATABASE [EMPRESA] ADD FILEGROUP [GA_GERAL]
+
+    GO
+```
+
+```sql
+    ALTER DATABASE [EMPRESA] ADD FILEGROUP [GA_MARKETING]
+
+    GO
+```
+
+```sql
+    ALTER DATABASE [EMPRESA] ADD FILEGROUP [GA_VENDAS]
+
+    GO
+```
+
+```sql
+    USE [EMPRESA]
+
+    GO
+```
+
+```sql
+    ALTER DATABASE EMPRESA
+    ADD FILE
+    (
+        NAME = GERAL,
+        FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\GERAL.ndf',
+        SIZE = 5MB,
+        MAXSIZE = 100MB,
+        FILEGROWTH = 5MB
+    )
+    TO FILEGROUP GA_GERAL;
+
+    GO
+```
+
+```sql
+    ALTER DATABASE EMPRESA
+    ADD FILE
+    (
+        NAME = MARKETING,
+        FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\MARKETING.ndf',
+        SIZE = 5MB,
+        MAXSIZE = 100MB,
+        FILEGROWTH = 5MB
+    )
+    TO FILEGROUP GA_MARKETING;
+    
+    GO
+```
+
+```sql
+    ALTER DATABASE EMPRESA
+    ADD FILE
+    (
+        NAME = VENDAS,
+        FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\VENDAS.ndf',
+        SIZE = 5MB,
+        MAXSIZE = 100MB,
+        FILEGROWTH = 5MB
+    )
+    TO FILEGROUP GA_VENDAS;
+    
+    GO
+```
+
+```sql
+    IF NOT EXISTS (SELECT name FROM sys.filegroups WHERE is_default=1 AND name = N'GA_GERAL') ALTER DATABASE [EMPRESA] MODIFY FILEGROUP [GA_GERAL] DEFAULT
+
+    GO
+```
+
+```sql
+    CREATE TABLE persons (
+        id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+        name VARCHAR(32)
+    ) ON GA_VENDAS;
 ```
