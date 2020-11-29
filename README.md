@@ -25,8 +25,30 @@
 
 <h2 align="center">Installation on <img src="microsoft-windows-22.svg" width=100 height=100 alt="Windows"></h2>
 
+
+<h6 align="center">SQL Server Express</h6>
+
 ```sql
+    https://go.microsoft.com/fwlink/?linkid=866658
 ```
+
+<p align="center">Open the file SQL2019-SSEI-Expr</p>
+
+<p align="center">Click on Download Media</p>
+
+<p align="center"><img src="Untitled2.png"></p>
+
+<p align="center"><img src="Untitled.png"></p>
+
+<p align="center">Open the file SQLEXPR_x64_ENU and install</p>
+
+<h6 align="center">Baixar o SQL Server Management Studio (SSMS)</h6>
+
+```sql
+    https://download.microsoft.com/download/2/d/1/2d12f6a1-e28f-42d1-9617-ac036857c5be/SSMS-Setup-ENU.exe
+```
+
+<p align="center">Open the file SSMS-Setup-ENU and install</p>
 
 <h6 align="center">Login</h6>
 
