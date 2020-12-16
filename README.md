@@ -32,11 +32,13 @@
     https://go.microsoft.com/fwlink/?linkid=866658
 ```
 
-<p align="center">Open the file SQL2019-SSEI-Expr</p>
+<p align="center">Open the file <b>SQL2019-SSEI-Expr</b></p>
 
-<p align="center">Click on Download Media</p>
+<p align="center">Click on <b>Download Media</b></p>
 
 <p align="center"><img src="Untitled2.png"></p>
+
+<p align="center">Click on <b>Download</b></p>
 
 <p align="center"><img src="Untitled.png"></p>
 
