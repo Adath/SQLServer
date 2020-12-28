@@ -85,16 +85,31 @@
         created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME NULL,
         deleted_at DATETIME NULL,
-        sex CHAR(1) NOT NULL CHECK (sex IN ('F', 'M')),
+        sex CHAR(1) NOT NULL,
         CONSTRAINT UsersNameUnique UNIQUE (name),
         CONSTRAINT UsersUserUnique UNIQUE (username),
     );
+```
+
+```sql
+    ALTER TABLE users ADD CONSTRAINT UsersSexCheck CHECK (sex IN ('F', 'M'));
+```
+
+```sql
+    CREATE TABLE persons (
+        id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+        name VARCHAR(32)
+    ) ON GA_VENDAS;
 ```
 
 <h6 align="center">DROP TABLE</h6>
 
 ```sql
     DROP TABLE users;
+```
+
+```sql
+    DROP TABLE persons;
 ```
 
 <h6 align="center">INSERT INTO</h6>
@@ -243,9 +258,12 @@
     GO
 ```
 
+<h6 align="center">PROCEDURES</h6>
+
 ```sql
-    CREATE TABLE persons (
-        id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-        name VARCHAR(32)
-    ) ON GA_VENDAS;
+    SP_COLUMNS users;
+```
+
+```sql
+    SP_HELP users;
 ```
