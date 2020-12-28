@@ -3,17 +3,14 @@
 <p align="center">Repository containing the queries developed in <a href="https://www.microsoft.com/sql-server">👉 SQLServer 👈</a></p>
 
 <p align="center">
-    <a href="https://opensource.org/licenses/MIT">
-        <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+    <a href="#">
+        <img alt="License" src="https://img.shields.io/github/license/Adath/SQLServer">
     </a>
     <a href="#">
         <img alt="License" src="https://img.shields.io/github/languages/count/Adath/SQLServer">
     </a>
     <a href="#">
         <img alt="License" src="https://img.shields.io/github/last-commit/Adath/SQLServer">
-    </a>
-    <a href="#">
-        <img alt="License" src="https://img.shields.io/github/followers/Adath?style=social">
     </a>
 </p>
 
@@ -266,4 +263,20 @@
 
 ```sql
     SP_HELP users;
+```
+
+<h6 align="center">IFNULL</h6>
+
+```sql
+
+```
+
+<h6 align="center">DATE</h6>
+
+```sql
+    SELECT CURRENT_TIMESTAMP;
+```
+
+```sql
+    SELECT GETDATE();
 ```
