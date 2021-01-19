@@ -280,3 +280,9 @@
 ```sql
     SELECT GETDATE();
 ```
+
+<h6 align="center">MD5</h6>
+
+```sql
+    SELECT CONVERT(NVARCHAR(32), HashBytes('MD5', 'secret'), 2);
+```
