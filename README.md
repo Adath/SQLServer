@@ -166,6 +166,12 @@
     SELECT COALESCE(users.name, '') + '; ' + COALESCE(users.username, '') + '; ' + COALESCE(users.password, '') + '; ' + COALESCE(users.sex, '') FROM users;
 ```
 
+<h6 align="center">SQL Server CROSS APPLY and OUTER APPLY</h6>
+
+```sql
+    https://www.mssqltips.com/sqlservertip/1958/sql-server-cross-apply-and-outer-apply
+```
+
 <h6 align="center">TABLE PARTITIONING</h6>
 
 ```sql
